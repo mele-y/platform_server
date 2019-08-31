@@ -6,21 +6,24 @@
 -->
 <hibernate-mapping>
     <class name="vo.Bookinfo" table="bookinfo" catalog="server">
-        <id name="uper" type="java.lang.String">
-            <column name="uper" length="45" />
+        <id name="bookname" type="java.lang.String">
+            <column name="bookname" length="45" />
             <generator class="assigned" />
         </id>
-        <property name="uptime" type="java.sql.Timestamp">
-            <column name="uptime" length="19" not-null="true" />
+        <property name="uper" type="java.lang.String">
+            <column name="uper" length="45" not-null="true" />
         </property>
-        <property name="bookname" type="java.lang.String">
-            <column name="bookname" length="45" not-null="true" />
+        <property name="uptime" type="java.lang.String">
+            <column name="uptime" length="45" not-null="true" />
         </property>
         <property name="author" type="java.lang.String">
             <column name="author" length="45" not-null="true" />
         </property>
         <property name="publication" type="java.lang.String">
             <column name="publication" length="45" not-null="true" />
+        </property>
+        <property name="uri" type="java.lang.String">
+            <column name="uri" length="45" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

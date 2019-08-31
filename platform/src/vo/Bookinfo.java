@@ -1,7 +1,5 @@
 package vo;
 
-import java.sql.Timestamp;
-
 /**
  * Bookinfo entity. @author MyEclipse Persistence Tools
  */
@@ -10,11 +8,12 @@ public class Bookinfo implements java.io.Serializable {
 
 	// Fields
 
-	private String uper;
-	private Timestamp uptime;
 	private String bookname;
+	private String uper;
+	private String uptime;
 	private String author;
 	private String publication;
+	private String uri;
 
 	// Constructors
 
@@ -23,16 +22,25 @@ public class Bookinfo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Bookinfo(String uper, Timestamp uptime, String bookname,
-			String author, String publication) {
+	public Bookinfo(String bookname, String uper, String uptime, String author,
+			String publication, String uri) {
+		this.bookname = bookname;
 		this.uper = uper;
 		this.uptime = uptime;
-		this.bookname = bookname;
 		this.author = author;
 		this.publication = publication;
+		this.uri = uri;
 	}
 
 	// Property accessors
+
+	public String getBookname() {
+		return this.bookname;
+	}
+
+	public void setBookname(String bookname) {
+		this.bookname = bookname;
+	}
 
 	public String getUper() {
 		return this.uper;
@@ -42,20 +50,12 @@ public class Bookinfo implements java.io.Serializable {
 		this.uper = uper;
 	}
 
-	public Timestamp getUptime() {
+	public String getUptime() {
 		return this.uptime;
 	}
 
-	public void setUptime(Timestamp uptime) {
+	public void setUptime(String uptime) {
 		this.uptime = uptime;
-	}
-
-	public String getBookname() {
-		return this.bookname;
-	}
-
-	public void setBookname(String bookname) {
-		this.bookname = bookname;
 	}
 
 	public String getAuthor() {
@@ -72,6 +72,14 @@ public class Bookinfo implements java.io.Serializable {
 
 	public void setPublication(String publication) {
 		this.publication = publication;
+	}
+
+	public String getUri() {
+		return this.uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
 	}
 
 }

@@ -1,5 +1,5 @@
 #MyEclipse Hibernate Properties
-#Fri Aug 30 18:11:23 CST 2019
+#Sat Aug 31 13:51:26 CST 2019
 sessionFactoryName=org.HibernateSessionFactory
 genBasicCompId=false
 profile=
@@ -22,4 +22,3 @@ reSettingsFile=
 configFile=/platform/src/hibernate.cfg.xml
 createConfigFile=true
 addLibs2Classpath=false
-baseDaoClass=vo.BaseHibernateDAO
