@@ -9,6 +9,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import vo.Bookinfo;
+import vo.Userinfo;
 
 public class BookinfoDAO {
 	private SessionFactory sf;
@@ -48,6 +49,19 @@ public class BookinfoDAO {
      }
 	  
    }
+   public boolean isExisted(String bookname)
+   {
+	   openSession();
+	   Bookinfo p=(Bookinfo)session.get(Bookinfo.class,bookname);
+	  if(p!=null)
+	  {   closeSession(false);
+		  return true;
+	  }	  
+	  else
+	  {   closeSession(false);
+		  return false;
+	  }
+   }
    public List<Bookinfo> queryPage(StringBuilder sql,int pageNow,int pageSize)
    {
    	openSession();
@@ -75,19 +89,17 @@ public class BookinfoDAO {
   	 closeSession(false);
   	 return list;	 
    }
+   public Bookinfo getBook(String bookname)
+   {
+	      openSession();
+	      Bookinfo book=(Bookinfo)session.get(Bookinfo.class, bookname);
+	      closeSession(false);
+	      return book;
+   }
    public static void main(String[] args)
    {
 	   BookinfoDAO bd=new BookinfoDAO();
-	   String item="人民出版社";
-		StringBuilder sql=new StringBuilder("from Bookinfo where 1=1");
-        sql.append(" and ( uper like '%"+item+"%'");
-        sql.append(" or bookname like '%"+item+"%'");
-        sql.append(" or author like '%"+item+"%'");
-        sql.append(" or publication like '%"+item+"%' )");
-	   List<Bookinfo> list=bd.queryPage(sql,1,5);
-	   for(int i=0;i<list.size();i++)
-	   {
-		   System.out.println(list.get(i).getBookname()+" "+list.get(i).getAuthor());
-	   }
+	   bd.addNewBook(new Bookinfo("s","s","s","s","s","s"));
+
    }
 }

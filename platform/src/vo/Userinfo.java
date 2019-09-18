@@ -1,58 +1,54 @@
 package vo;
 
-
-
 /**
  * Userinfo entity. @author MyEclipse Persistence Tools
  */
 
-public class Userinfo  implements java.io.Serializable {
+public class Userinfo implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private String username;
+	private String password;
+	private String photoUrl;
 
-     private String username;
-     private String password;
+	// Constructors
 
+	/** default constructor */
+	public Userinfo() {
+	}
 
-    // Constructors
+	/** full constructor */
+	public Userinfo(String username, String password, String photoUrl) {
+		this.username = username;
+		this.password = password;
+		this.photoUrl = photoUrl;
+	}
 
-    /** default constructor */
-    public Userinfo() {
-    }
+	// Property accessors
 
-    
-    /** full constructor */
-    public Userinfo(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+	public String getUsername() {
+		return this.username;
+	}
 
-   
-    // Property accessors
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getUsername() {
-        return this.username;
-    }
-    
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getPassword() {
+		return this.password;
+	}
 
-    public String getPassword() {
-        return this.password;
-    }
-    
-    public void setPassword(String password) {
-        this.password = password;
-    }
-   
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
+	public String getPhotoUrl() {
+		return this.photoUrl;
+	}
 
-
-
-
-
-
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
 
 }

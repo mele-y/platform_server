@@ -9,6 +9,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 
+import vo.Bookinfo;
 import vo.Userinfo;
 public class UserinfoDAO {
 	private SessionFactory sf;
@@ -76,4 +77,31 @@ public class UserinfoDAO {
 	   }
 	
  }
+  public Userinfo getUser(String username)
+  {
+      openSession();
+      Userinfo us=(Userinfo)session.get(Userinfo.class, username);
+      closeSession(false);
+      return us;
+  }
+  public boolean isExisted(String username)
+  {
+	   openSession();
+	   Userinfo p=(Userinfo)session.get(Userinfo.class,username);
+	  if(p!=null)
+	  {   closeSession(false);
+		  return true;
+	  }	  
+	  else
+	  {   closeSession(false);
+		  return false;
+	  }
+  }
+  public static void main(String[] args)
+  {
+	  UserinfoDAO ud=new UserinfoDAO();
+	  System.out.println("test begin");
+	  System.out.println(ud.isExisted("year"));
+	  ud.addUser(new Userinfo("1","1","1"));
+  }
 }

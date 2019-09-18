@@ -47,28 +47,42 @@ public class getBook extends HttpServlet {
            response.setCharacterEncoding("UTF-8");
            PrintWriter out = response.getWriter();
 		   String item=request.getParameter("item");
+		   String item2=item;
 		   byte source [] = item.getBytes("iso8859-1");
 		   item=new String(source,"UTF-8");
 		   int index=Integer.parseInt(request.getParameter("index"));
 		   int pageSize=10,pageCount;
 			StringBuilder sql=new StringBuilder("from Bookinfo where 1=1");
-	        sql.append(" and ( uper like '%"+item+"%'");
-	        sql.append(" or bookname like '%"+item+"%'");
-	        sql.append(" or author like '%"+item+"%'");
-	        sql.append(" or publication like '%"+item+"%' )");
+	        sql.append(" and ( uper like '%"+item2+"%'");
+	        sql.append(" or bookname like '%"+item2+"%'");
+	        sql.append(" or author like '%"+item2+"%'");
+	        sql.append(" or publication like '%"+item2+"%' )");
 	        BookinfoDAO bd=new BookinfoDAO();
 	        List<Bookinfo> list=bd.queryPage(sql, index, pageSize);
-	        pageCount=bd.PageCount(sql, pageSize);
 	        JSONObject object=new JSONObject();
+	        if(list.size()!=0)
+	        {
+	        pageCount=bd.PageCount(sql, pageSize)+1;
 	        object.put("pageCount", pageCount);
 	        object.put("pageSize", pageSize);
-	        object.put("item", item);
+	        object.put("item", item2);
 	        object.put("pageNow", index);
 	        object.put("bookData", list);
+	        object.put("state","400");
 	        out.print(object.toJSONString());
-	        
 	        out.flush();
 	        out.close();
+	        }
+	        else
+	        {
+	        	object.put("state","500");
+	        	object.put("item", item);
+	        	object.put("item2", item2);
+	        	object.put("index", index);
+	        	out.print(object.toJSONString());
+		        out.flush();
+		        out.close();
+	        }
 	        	
 	}
 

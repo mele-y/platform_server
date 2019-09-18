@@ -13,5 +13,8 @@
         <property name="password" type="java.lang.String">
             <column name="password" length="45" not-null="true" />
         </property>
+        <property name="photoUrl" type="java.lang.String">
+            <column name="photoURL" length="100" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -47,6 +47,41 @@
     <servlet-name>getBook</servlet-name>
     <servlet-class>forAction.getBook</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>upLoadFile</servlet-name>
+    <servlet-class>upLoadFile</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>characterTest</servlet-name>
+    <servlet-class>forAction.characterTest</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>photoRegister</servlet-name>
+    <servlet-class>forAction.photoRegister</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>getUserImage</servlet-name>
+    <servlet-class>forAction.getUserImage</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>downLoadFile</servlet-name>
+    <servlet-class>forAction.downLoadFile</servlet-class>
+  </servlet>
+
+
+
+
+
 
 
 
@@ -77,6 +112,26 @@
   <servlet-mapping>
     <servlet-name>getBook</servlet-name>
     <url-pattern>/servlet/getBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>upLoadFile</servlet-name>
+    <url-pattern>/servlet/upLoadFile</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>characterTest</servlet-name>
+    <url-pattern>/servlet/characterTest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>photoRegister</servlet-name>
+    <url-pattern>/servlet/photoRegister</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getUserImage</servlet-name>
+    <url-pattern>/servlet/getUserImage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>downLoadFile</servlet-name>
+    <url-pattern>/servlet/downLoadFile</url-pattern>
   </servlet-mapping>
 	
   <welcome-file-list>
